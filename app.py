@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 
 @app.route("/")
-@app.route("/get_produtions")
-def get_produtions():
+@app.route("/get_productions")
+def get_productions():
     return render_template("productions.html")
 
 
