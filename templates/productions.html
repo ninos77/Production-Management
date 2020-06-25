@@ -1,5 +1,35 @@
 {% extends 'base.html'%} {% block content %}
 
-<h1>All Productions</h1>
+
+<h2>All Productions</h2>
+<div class="row">
+	<ul class="collapsible" data-collapsible="accordion">
+
+		<li>
+			<div class="collapsible-header">
+				<div class="col s6 m6">
+					<i class="material-icons">expand_more</i>
+					<a href="#" class="waves-effect waves-light btn btn_small">Done</a>
+					<a href="#" class="waves-effect waves-light btn btn_small blue">Edit</a>
+					<a href="#" class="waves-effect waves-light btn btn_small blue">Add date-employee</a>
+				</div>
+				<div class="task_header col s6">
+					<strong>production's name</strong>
+				</div>
+			</div>
+
+			<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+		</li>
+
+		<li>
+			<div class="collapsible-header"></div>
+			<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+		</li>
+		<li>
+			<div class="collapsible-header"></div>
+			<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+		</li>
+	</ul>
+</div>
 
 {% endblock %}
