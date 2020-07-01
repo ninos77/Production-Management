@@ -15,7 +15,8 @@ mongo = PyMongo(app)
 @app.route("/get_productions")
 def get_productions():
     return render_template("productions.html",
-                           productions=mongo.db.productions.find())
+                           productions=mongo.db.productions.find(),
+                           employees=mongo.db.employees.find())
 
 
 if __name__ == "__main__":
