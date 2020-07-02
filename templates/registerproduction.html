@@ -9,7 +9,11 @@
     <select multiple>
       <option value="" disabled selected></option>
       {% for employee in employees%}
+      {% if employee.nick_name == production.nick_name%}
+      <option value="{{employee.nick_name}}" selected>{{employee.nick_name}}</option>
+      {% else %}
       <option value="{{employee.nick_name}}">{{employee.nick_name}}</option>
+      {% endif %}
       {% endfor %}
     </select>
         </div>
@@ -18,6 +22,24 @@
         <input id="date" name="date" type="text" class="datepicker" value="{{production.date}}">
         </div>
       </div>
+     <div class="row">
+      <div class="input-field col s12">
+        <input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
+        <label for="icon_prefix">Product Number:</label>
+      </div>
+    </div>
+         <div class="row">
+      <div class="input-field col s12">
+        <input id="product_name" name="product_name" type="text" class="validate" value="{{production.product_name }}" />
+        <label for="icon_prefix">Product Name:</label>
+      </div>
+    </div>
+         <div class="row">
+      <div class="input-field col s12">
+        <input id="machine_name" name="machine_name" type="text" class="validate" value="{{production.machine_name }}" />
+        <label for="icon_prefix">Machine Name:</label>
+      </div>
+    </div>
       <div class="row">
         <div class="input-field col s12">
           <textarea id="comments" name="comments" class="materialize-textarea">{{production.comments}}</textarea>

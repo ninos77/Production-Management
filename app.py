@@ -20,12 +20,33 @@ def get_productions():
                            employees=mongo.db.employees.find())
 
 
+@app.route("/add_production")
+def add_production():
+    return render_template("addproduction.html",
+                           employees=mongo.db.employees.find())
+
+
+@app.route("/insert_product", methods=["POST"])
+def insert_product():
+    productions = mongo.db.productions
+    productions.insert_one(request.form.to_dict())
+    return redirect(url_for("get_productions"))
+
+
 @app.route('/register_production/<production_id>')
 def register_production(production_id):
-    the_production = mongo.db.tasks.find_one({"_id": ObjectId(production_id)})
+    the_production = mongo.db.productions.find_one({"_id": ObjectId(production_id)})
     all_employees = mongo.db.employees.find()
     return render_template('registerproduction.html',
                            production=the_production,
+                           employees=all_employees)
+
+
+@app.route('/edit_production/<production_id>')
+def edit_production(production_id):
+    the_production = mongo.db.productions.find_one({"_id": ObjectId(production_id)})
+    all_employees = mongo.db.employees.find()
+    return render_template('editproduction.html', production=the_production,
                            employees=all_employees)
 
 
@@ -37,7 +58,7 @@ def update_production(production_id):
          'product_number': request.form.get('product_number'),
          'product_name': request.form.get('product_name'),
          'machine_name': request.form.get('machine_name'),
-         'employees': request.form.get('employees'),
+         'employees': request.form.getlist('employees'),
          'comments': request.form.get('comments'),
          'date': request.form.get('date')
     })

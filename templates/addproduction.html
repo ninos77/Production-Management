@@ -1,0 +1,62 @@
+{% extends "base.html" %}  {% block content %}
+
+<h2>Add Production</h2>
+
+<div class="row">
+  <form action="{{ url_for('insert_product')}}" method="POST" class="col s12">
+      <div class="row">
+      <div class="input-field col s12">
+        <input id="product_number" name="product_number" type="text" class="validate" />
+        <label for="icon_prefix">Product Number:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="product_name" name="product_name" type="text" class="validate" />
+        <label for="icon_prefix">Product Name</label>
+      </div>
+    </div>
+        <div class="row">
+      <div class="input-field col s12">
+        <input id="machine_name" name="machine_name" type="text" class="validate" />
+        <label for="icon_prefix">Machine Name:</label>
+      </div>
+    </div>
+      <!--<div class="row">
+  <div class="input-field col s12">
+    <select id="employees" name="employees">
+      <option value="" selected>Employee Name </option>
+      {% for employee in employees %}
+      <option value=""  selected></option>
+      {% endfor %}
+    </select>
+  </div>
+  </div>-->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          name="comments"
+          id="comments"
+          type="textarea"
+          class="materialize-textarea"
+        ></textarea>
+        <label for="icon_telephone">Comments:</label>
+      </div>
+   </div>
+     <!-- <div class="row">
+     <div id="matfix">
+      <div class="input-field col s12">
+        <input id="date" name="date" type="text" class="datepicker">
+        <label for="icon_prefix">Date</label>
+      </div>
+      </div>
+    </div>-->
+
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" >Add Product
+     </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
