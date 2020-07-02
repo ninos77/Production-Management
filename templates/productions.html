@@ -2,93 +2,49 @@
 
 <h2>All Productions</h2>
 <div class="row">
-<form action="{{ url_for('update_production', production_id=production_id)}}" method="POST">
-  <div class="col s12">
     <ul class="collapsible" data-collapsible="accordion">
-      {% for pro in productions %}
+      {% for production in productions %}
       <li>
         <div class="collapsible-header margin-10">
-          <div class="row">
-            <div class="col s12 l1">
-              <i class="material-icons">expand_more</i>
-            </div>
-            <div class="col s12 l2">
-              <a href="#" class="waves-effect waves-light btn btn_small"
-                >Delet</a
-              >
-            </div>
-            <div class="col s12 l2 margin-10">
-              <a href="#" class="waves-effect waves-light btn btn_small blue"
-                ><span>Edit</span></a
-              >
-            </div>
             <div class="col s12 l4">
-              <span
-                >Production Name:<strong> {{pro.product_name}}</strong></span
-              >
+              <i class="material-icons">expand_more</i>
+              <a href="#" class="waves-effect waves-light btn btn_small">Delet</a>
+              <a href="#" class="waves-effect waves-light btn btn_small blue  margin-10"><span>Edit</span></a>
             </div>
-            <div class="col s12 l3">
-              <span
-                >Production Number:<strong>
-                  {{pro.product_number}}</strong
-                ></span
-              >
+            <div class="col s12 l8">
+              <h5 class="center-align"><strong>Production Name:</strong> {{production.product_name}}</h5>
             </div>
-          </div>
         </div>
         <div class="collapsible-body">
           <div class="row">
-            <div class="input-field col s12 l4">
-              <select id="employee" name="nick_name" multiple>
-                <option disabled selected></option>
-                {% for emp in employees%}
-                <option value="1">{{emp.nick_name}}</option>
-                {% endfor %}
-              </select>
-              <label>employee nick name: </label>
+            <div class="col s12 l3">
+              <span><h5>Product Number:</h5>{{production.product_number}}</span>
             </div>
-            <div class="input-field col s12 l4">
-              <input
-                value="{{pro.machine_name}}"
-                id="{{pro.machine_name}}"
-                type="text"
-                class="validate"
-              />
-              <label class="active" for="first_name2">Machine: </label>
+            <div class="col s12 l3">
+            <span><h5>Machine Name:</h5>{{production.machine_name}}</span>
             </div>
-            <div id="matfix">
-              <div class="input-field col s12 l4">
-                <input
-                  value="{{pro.date}}"
-                  id="{{pro.date}}"
-                  type="text"
-                  class="validate"
-                />
-                <label class="active" for="date">Date</label>
-              </div>
+            <div class="col s12 l3">
+            <span><h5>Employees:</h5></span>
             </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <textarea id="pro.comments" class="materialize-textarea">
-{{ pro.comments}}</textarea
-              >
-              <label for="textarea1">Comments</label>
+            <div class="col s12 l3">
+            <span><h5>Date of production:</h5></span>
             </div>
-          </div>
-          <div class="row">
+             </div>
+            <div class="row">
+            <div class="col s12 m4">
+            <span><h5>Comments:</h5></span>
+            <p id="comments">{{ production.comments}}</p>
+            </div>
+            </div>
+        <div class="row">
           <div class="col s12">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Confirm
-        <i class="material-icons right">edit</i>
-     </button>
-     </div>
+        <a class="waves-effect waves-light btn modal-trigger " href="{{url_for('register_production', production_id=production._id)}}" >register production</a>
+             </div>
           </div>
-        </div>
+      </div>
       </li>
       {% endfor %}
     </ul>
-  </div>
-  </form>
 </div>
 
 {% endblock %}

@@ -20,14 +20,23 @@ def get_productions():
                            employees=mongo.db.employees.find())
 
 
+@app.route('/register_production/<production_id>')
+def register_production(production_id):
+    the_production = mongo.db.tasks.find_one({"_id": ObjectId(production_id)})
+    all_employees = mongo.db.employees.find()
+    return render_template('registerproduction.html',
+                           production=the_production,
+                           employees=all_employees)
+
+
 @app.route("/update_production/<production_id>", methods=["POST"])
 def update_production(production_id):
     productions = mongo.db.productions
     productions.update({"_id": ObjectId(production_id)},
     {
+         'product_number': request.form.get('product_number'),
          'product_name': request.form.get('product_name'),
          'machine_name': request.form.get('machine_name'),
-         'product_number': request.form.get('product_number'),
          'employees': request.form.get('employees'),
          'comments': request.form.get('comments'),
          'date': request.form.get('date')

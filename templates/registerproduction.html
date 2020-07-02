@@ -1,0 +1,33 @@
+  {% extends 'base.html'%} {% block content %}
+  
+  <h2>Register Production</h2>
+  <div class="row">
+    <form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+      <div class="row">
+        <div class="col s12 l6">
+        <label>Employees:</label>
+    <select multiple>
+      <option value="" disabled selected></option>
+      {% for employee in employees%}
+      <option value="{{employee.nick_name}}">{{employee.nick_name}}</option>
+      {% endfor %}
+    </select>
+        </div>
+        <div class="col s12 l6">
+        <label for="icon_prefix">Date of production:</label>
+        <input id="date" name="date" type="text" class="datepicker" value="{{production.date}}">
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="comments" name="comments" class="materialize-textarea">{{production.comments}}</textarea>
+          <label for="comments">Comments:</label>
+        </div>
+      </div>
+      <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" name="action">confirm
+     </button>
+    </div>
+    </form>
+  </div>
+  {% endblock %}
