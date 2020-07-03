@@ -10,9 +10,9 @@
       <option value="" disabled selected></option>
       {% for employee in employees%}
       {% if employee.nick_name == production.nick_name%}
-      <option value="{{employee.nick_name}}" selected>{{employee.nick_name}}</option>
+      <option value="{{employees}}" selected>{{employee.nick_name}}</option>
       {% else %}
-      <option value="{{employee.nick_name}}">{{employee.nick_name}}</option>
+      <option value="{{employees}}">{{employee.nick_name}}</option>
       {% endif %}
       {% endfor %}
     </select>

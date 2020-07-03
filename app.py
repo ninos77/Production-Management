@@ -20,14 +20,21 @@ def get_productions():
                            employees=mongo.db.employees.find())
 
 
+@app.route("/get_products")
+def get_products():
+    return render_template("products.html",
+                           products=mongo.db.products.find())
+
+
 @app.route("/add_production")
 def add_production():
     return render_template("addproduction.html",
-                           employees=mongo.db.employees.find())
+                           employees=mongo.db.employees.find(),
+                           products=mongo.db.products.find())
 
 
-@app.route("/insert_product", methods=["POST"])
-def insert_product():
+@app.route("/insert_production", methods=["POST"])
+def insert_production():
     productions = mongo.db.productions
     productions.insert_one(request.form.to_dict())
     return redirect(url_for("get_productions"))
@@ -50,7 +57,7 @@ def edit_production(production_id):
                            employees=all_employees)
 
 
-@app.route("/update_production/<production_id>", methods=["POST"])
+@app.route("/update_production/<production_id>", methods=["GET", "POST"])
 def update_production(production_id):
     productions = mongo.db.productions
     productions.update({"_id": ObjectId(production_id)},
@@ -58,7 +65,7 @@ def update_production(production_id):
          'product_number': request.form.get('product_number'),
          'product_name': request.form.get('product_name'),
          'machine_name': request.form.get('machine_name'),
-         'employees': request.form.getlist('employees'),
+         'employees': request.form.getlist('employees[]'),
          'comments': request.form.get('comments'),
          'date': request.form.get('date')
     })

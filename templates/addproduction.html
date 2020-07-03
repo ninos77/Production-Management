@@ -3,7 +3,7 @@
 <h2>Add Production</h2>
 
 <div class="row">
-  <form action="{{ url_for('insert_product')}}" method="POST" class="col s12">
+  <form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
       <div class="row">
       <div class="input-field col s12">
         <input id="product_number" name="product_number" type="text" class="validate" />
@@ -12,8 +12,12 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="product_name" name="product_name" type="text" class="validate" />
-        <label for="icon_prefix">Product Name</label>
+    <select id="product" name="product_name">
+      <option value="" disabled selected>Choose your Product</option>
+      {% for product in products %}
+      <option value="{{product.product_name}}">{{product.product_name}}</option>
+      {% endfor %}
+    </select>
       </div>
     </div>
         <div class="row">
