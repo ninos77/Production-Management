@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class=" col s12">
     <select id="product" name="product_name">
       <option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
@@ -21,21 +21,15 @@
       </div>
     </div>
         <div class="row">
-      <div class="input-field col s12">
-        <input id="machine_name" name="machine_name" type="text" class="validate" />
-        <label for="icon_prefix">Machine Name:</label>
-      </div>
-    </div>
-      <!--<div class="row">
-  <div class="input-field col s12">
-    <select id="employees" name="employees">
-      <option value="" selected>Employee Name </option>
-      {% for employee in employees %}
-      <option value=""  selected></option>
+      <div class="col s12">
+    <select id="machine" name="machine_name">
+      <option value="" disabled selected>Choose your Machine</option>
+      {% for machine in machines %}
+      <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
       {% endfor %}
     </select>
-  </div>
-  </div>-->
+      </div>
+      </div>
     <div class="row">
       <div class="input-field col s12">
         <textarea
@@ -47,15 +41,6 @@
         <label for="icon_telephone">Comments:</label>
       </div>
    </div>
-     <!-- <div class="row">
-     <div id="matfix">
-      <div class="input-field col s12">
-        <input id="date" name="date" type="text" class="datepicker">
-        <label for="icon_prefix">Date</label>
-      </div>
-      </div>
-    </div>-->
-
     <div class="row">
       <button class="btn waves-effect waves-light" type="submit" >Add Product
      </button>

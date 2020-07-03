@@ -1,6 +1,6 @@
 {% extends "base.html" %}  {% block content %}
 
-<h2>Add Production</h2>
+<h2>Edit Production</h2>
 
 <div class="row">
   <form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
@@ -11,21 +11,33 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="col s12">
     <select id="product" name="product_name">
       <option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
+      {% if product.product_name == production.product_name%}
+      <option value="{{product.product_name}}" selected>{{product.product_name}}</option>
+      {% else %}
       <option value="{{product.product_name}}">{{product.product_name}}</option>
+      {% endif %}
       {% endfor %}
     </select>
       </div>
     </div>
         <div class="row">
-      <div class="input-field col s12">
-        <input id="machine_name" name="machine_name" type="text" class="validate" value="{{production.machine_name}}" />
-        <label for="icon_prefix">Machine Name:</label>
+    <div class="col s12">
+    <select id="machine" name="machine_name">
+      <option value="" disabled selected>Choose your Machine</option>
+      {% for machine in machines %}
+      {% if machine.machine_name == production.machine_name%}
+      <option value="{{machine.machine_name}}" selected>{{machine.machine_name}}</option>
+      {% else %}
+      <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
+      {% endif %}
+      {% endfor %}
+    </select>
       </div>
-    </div>
+      </div>
     <div class="row">
       <div class="input-field col s12">
         <textarea

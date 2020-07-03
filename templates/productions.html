@@ -33,7 +33,11 @@
             {% endfor %}
             </div>
             <div class="col s12 l3">
+            {% if not production.date  %}
+            <span><h5>Date of production:</h5></span>
+            {% else %}
             <span><h5>Date of production:</h5>{{production.date}}</span>
+            {% endif %}
             </div>
              </div>
             <div class="row">

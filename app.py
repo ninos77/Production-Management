@@ -30,7 +30,8 @@ def get_products():
 def add_production():
     return render_template("addproduction.html",
                            employees=mongo.db.employees.find(),
-                           products=mongo.db.products.find())
+                           products=mongo.db.products.find(),
+                           machines=mongo.db.machines.find())
 
 
 @app.route("/insert_production", methods=["POST"])
