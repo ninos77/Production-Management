@@ -53,8 +53,11 @@ def register_production(production_id):
 def edit_production(production_id):
     the_production = mongo.db.productions.find_one({"_id": ObjectId(production_id)})
     all_employees = mongo.db.employees.find()
+    all_machines = mongo.db.machines.find()
+    all_products = mongo.db.products.find()
     return render_template('editproduction.html', production=the_production,
-                           employees=all_employees)
+                           employees=all_employees, machines=all_machines,
+                           products=all_products)
 
 
 @app.route("/update_production/<production_id>", methods=["GET", "POST"])

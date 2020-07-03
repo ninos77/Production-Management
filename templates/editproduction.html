@@ -1,0 +1,47 @@
+{% extends "base.html" %}  {% block content %}
+
+<h2>Add Production</h2>
+
+<div class="row">
+  <form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+      <div class="row">
+      <div class="input-field col s12">
+        <input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
+        <label for="icon_prefix">Product Number: </label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+    <select id="product" name="product_name">
+      <option value="" disabled selected>Choose your Product</option>
+      {% for product in products %}
+      <option value="{{product.product_name}}">{{product.product_name}}</option>
+      {% endfor %}
+    </select>
+      </div>
+    </div>
+        <div class="row">
+      <div class="input-field col s12">
+        <input id="machine_name" name="machine_name" type="text" class="validate" value="{{production.machine_name}}" />
+        <label for="icon_prefix">Machine Name:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          name="comments"
+          id="comments"
+          type="textarea"
+          class="materialize-textarea"
+        >{{production.comments}}</textarea>
+        <label for="icon_telephone">Comments:</label>
+      </div>
+   </div>
+    <div class="row">
+      <button class="btn waves-effect waves-light" type="submit" >Edit Production
+     </button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
