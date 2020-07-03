@@ -72,6 +72,12 @@ def update_production(production_id):
     return redirect(url_for("get_productions"))
 
 
+@app.route('/delet_production/<production_id>')
+def delet_production(production_id):
+    mongo.db.productions.remove({"_id": ObjectId(production_id)})
+    return redirect(url_for("get_productions"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
