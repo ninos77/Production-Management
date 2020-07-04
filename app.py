@@ -26,6 +26,12 @@ def get_products():
                            products=mongo.db.products.find())
 
 
+@app.route("/get_machines")
+def get_machines():
+    return render_template("machines.html",
+                           machines=mongo.db.machines.find())
+
+
 @app.route("/add_production")
 def add_production():
     return render_template("addproduction.html",
