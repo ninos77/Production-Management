@@ -8,7 +8,7 @@
         <div class="collapsible-header margin-10">
             <div class="col s12">
               <i class="material-icons">expand_more</i>
-              <a href="#" class="waves-effect waves-light red darken-4 btn btn_small">Delet</a>
+              <a href="{{url_for('delet_machine', machine_id=machine._id)}}" class="waves-effect waves-light red darken-4 btn btn_small">Delet</a>
               <a href="{{url_for('edit_machine', machine_id=machine._id)}}" class="waves-effect waves-light btn btn_small teal darken-2  margin-10"><span>Edit</span></a>
             </div>
             <div class="col s12">
@@ -31,6 +31,11 @@
       </li>
       {% endfor %}
     </ul>
+    <div class="row">
+    <div class="col s12">
+       <a href="{{url_for('add_machine')}}" class="waves-effect waves-light teal darken-2 btn btn_small blue"><span>Add New Machine</span></a>
+    </div>
+</div>
 </div>
 
 {% endblock %}

@@ -60,6 +60,19 @@ def insert_product():
     return redirect(url_for("get_products"))
 
 
+@app.route("/add_machine")
+def add_machine():
+    return render_template("addmachine.html",
+                           machines=mongo.db.machines.find())
+
+
+@app.route("/insert_machine", methods=["POST"])
+def insert_machine():
+    machines = mongo.db.machines
+    machines.insert_one(request.form.to_dict())
+    return redirect(url_for("get_machines"))
+
+
 @app.route('/edit_product/<product_id>')
 def edit_product(product_id):
     the_product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
@@ -134,6 +147,11 @@ def update_production(production_id):
 def delet_production(production_id):
     mongo.db.productions.remove({"_id": ObjectId(production_id)})
     return redirect(url_for("get_productions"))
+
+@app.route('/delet_machine/<machine_id>')
+def delet_machine(machine_id):
+    mongo.db.machines.remove({"_id": ObjectId(machine_id)})
+    return redirect(url_for("get_machines"))    
 
 
 @app.route('/delet_product/<product_id>')
