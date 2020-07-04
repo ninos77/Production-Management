@@ -54,6 +54,22 @@ def insert_product():
     return redirect(url_for("get_products"))
 
 
+@app.route('/edit_product/<product_id>')
+def edit_product(product_id):
+    the_product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    return render_template('editproduct.html', product=the_product)
+
+
+@app.route("/update_product/<product_id>", methods=["GET", "POST"])
+def update_product(product_id):
+    products = mongo.db.products
+    products.update({"_id": ObjectId(product_id)},
+    {
+         'product_name': request.form.get('product_name')
+    })
+    return redirect(url_for("get_products"))
+
+
 @app.route('/register_production/<production_id>')
 def register_production(production_id):
     the_production = mongo.db.productions.find_one({"_id": ObjectId(production_id)})
