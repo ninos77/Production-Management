@@ -1,0 +1,16 @@
+{% extends "base.html" %}  {% block content %}
+
+<h2>Add Product</h2>
+<div class="row">
+  <form action="{{ url_for('insert_product')}}" method="POST" class="col s12">
+      <div class="row">
+      <div class="input-field col s12">
+        <input id="product_name" name="product_name" type="text" class="validate" />
+        <label for="icon_prefix">Product Name:</label>
+      </div>
+    </div>
+      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Product
+     </button>
+  </form>
+</div>
+{% endblock %}

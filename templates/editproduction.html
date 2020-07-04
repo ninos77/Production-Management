@@ -4,6 +4,12 @@
 
 <div class="row">
   <form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="date" name="date" type="text" class="validate" value="{{production.date }}" />
+        <label for="icon_prefix">Date: </label>
+      </div>
+    </div>
       <div class="row">
       <div class="input-field col s12">
         <input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
@@ -50,7 +56,7 @@
       </div>
    </div>
     <div class="row">
-      <button class="btn waves-effect waves-light" type="submit" >Edit Production
+      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit Production
      </button>
     </div>
   </form>

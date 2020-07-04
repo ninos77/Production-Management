@@ -41,6 +41,19 @@ def insert_production():
     return redirect(url_for("get_productions"))
 
 
+@app.route("/add_product")
+def add_product():
+    return render_template("addproduct.html",
+                           products=mongo.db.products.find())
+
+
+@app.route("/insert_product", methods=["POST"])
+def insert_product():
+    products = mongo.db.products
+    products.insert_one(request.form.to_dict())
+    return redirect(url_for("get_products"))
+
+
 @app.route('/register_production/<production_id>')
 def register_production(production_id):
     the_production = mongo.db.productions.find_one({"_id": ObjectId(production_id)})
@@ -80,6 +93,12 @@ def update_production(production_id):
 def delet_production(production_id):
     mongo.db.productions.remove({"_id": ObjectId(production_id)})
     return redirect(url_for("get_productions"))
+
+
+@app.route('/delet_product/<product_id>')
+def delet_product(product_id):
+    mongo.db.products.remove({"_id": ObjectId(product_id)})
+    return redirect(url_for("get_products"))
 
 
 if __name__ == "__main__":
