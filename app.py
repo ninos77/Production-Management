@@ -66,6 +66,25 @@ def edit_product(product_id):
     return render_template('editproduct.html', product=the_product)
 
 
+@app.route('/edit_machine/<machine_id>')
+def edit_machine(machine_id):
+    the_machine = mongo.db.machines.find_one({"_id": ObjectId(machine_id)})
+    return render_template('editmachinestatus.html', machine=the_machine)
+
+
+@app.route("/update_machine/<machine_id>", methods=["GET", "POST"])
+def update_machine(machine_id):
+    machines = mongo.db.machines
+    machines.update({"_id": ObjectId(machine_id)},
+    {
+         'machine_name': request.form.get('machine_name'),
+         'is_in_production': request.form.get('is_in_production'),
+         'comments': request.form.get('comments')
+
+    })
+    return redirect(url_for("get_machines"))
+
+
 @app.route("/update_product/<product_id>", methods=["GET", "POST"])
 def update_product(product_id):
     products = mongo.db.products
