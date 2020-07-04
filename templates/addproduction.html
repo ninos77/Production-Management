@@ -25,7 +25,9 @@
     <select id="machine" name="machine_name">
       <option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
+      {% if machine.is_in_production %}
       <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
+      {% endif %}
       {% endfor %}
     </select>
       </div>
