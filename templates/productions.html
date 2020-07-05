@@ -1,60 +1,79 @@
 {% extends 'base.html'%} {% set active_page = "productions" %} {% block content %}
 
+
 <h2>All Productions</h2>
 <div class="row">
-    <ul class="collapsible" data-collapsible="accordion">
+	<ul class="collapsible" data-collapsible="accordion">
       {% for production in productions %}
-      <li>
-        <div class="collapsible-header margin-10">
-            <div class="col s12 l4">
-              <i class="material-icons">expand_more</i>
-              <a href="{{url_for('delet_production', production_id=production._id)}}" class="waves-effect waves-light red darken-4 btn btn_small">Delet</a>
-              <a href="{{url_for('edit_production', production_id=production._id)}}" class="waves-effect waves-light btn btn_small teal darken-2  margin-10"><span>Edit</span></a>
-            </div>
-            <div class="col s12 l8">
-              <h5 class="center-align"><strong>Product Name:</strong> {{production.product_name}}</h5>
-            </div>
-        </div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="col s12 l3">
-              <span><h5>Product Number:</h5>{{production.product_number}}</span>
-            </div>
-            <div class="col s12 l3">
-            <span><h5>Machine Name:</h5>{{production.machine_name}}</span>
-            </div>
-            <div class="col s12 l3">
-            <span><h5>Employees:</h5></span>
+		<li>
+			<div class="collapsible-header margin-10">
+				<div class="col s12 l4">
+					<i class="material-icons">expand_more</i>
+					<a href="{{url_for('delet_production', production_id=production._id)}}" class="waves-effect waves-light red darken-4 btn btn_small">Delet</a>
+					<a href="{{url_for('edit_production', production_id=production._id)}}" class="waves-effect waves-light btn btn_small teal darken-2  margin-10">
+						<span>Edit</span>
+					</a>
+				</div>
+				<div class="col s12 l8">
+					<h5 class="center-align">
+						<strong>Product Name:</strong> {{production.product_name}}
+					</h5>
+				</div>
+			</div>
+			<div class="collapsible-body">
+				<div class="row">
+					<div class="col s12 l3">
+						<span>
+							<h5>Product Number:</h5>{{production.product_number}}
+						</span>
+					</div>
+					<div class="col s12 l3">
+						<span>
+							<h5>Machine Name:</h5>{{production.machine_name}}
+						</span>
+					</div>
+					<div class="col s12 l3">
+						<span>
+							<h5>Employees:</h5>
+						</span>
             {% for emp in production.employees %}
               {{emp}} 
             {% if not loop.last %}
                {{','}}
             {% endif %}
             {% endfor %}
-            </div>
-            <div class="col s12 l3">
+					</div>
+					<div class="col s12 l3">
             {% if not production.date  %}
-            <span><h5>Date of production:</h5></span>
+            
+						<span>
+							<h5>Date of production:</h5>
+						</span>
             {% else %}
-            <span><h5>Date of production:</h5>{{production.date}}</span>
+						<span>
+							<h5>Date of production:</h5>{{production.date}}
+						</span>
             {% endif %}
-            </div>
-             </div>
-            <div class="row">
-            <div class="col s12 m4">
-            <span><h5>Comments:</h5></span>
-            <p id="comments">{{ production.comments}}</p>
-            </div>
-            </div>
-        <div class="row">
-          <div class="col s12">
-        <a class="waves-effect waves-light teal darken-2 btn modal-trigger " href="{{url_for('register_production', production_id=production._id)}}" >register production</a>
-             </div>
-          </div>
-      </div>
-      </li>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 m4">
+						<span>
+							<h5>Comments:</h5>
+						</span>
+						<p id="comments">{{ production.comments}}</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12">
+						<a class="waves-effect waves-light teal darken-2 btn modal-trigger " href="{{url_for('register_production', production_id=production._id)}}" >register production</a>
+					</div>
+				</div>
+			</div>
+		</li>
       {% endfor %}
-    </ul>
+    
+	</ul>
 </div>
 
 {% endblock %}

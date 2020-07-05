@@ -1,16 +1,17 @@
 {% extends "base.html" %}  {% block content %}
 
+
 <h2>Edit Product</h2>
 <div class="row">
-  <form action="{{url_for('update_product', product_id=product._id)}}" method="POST" class="col s12">
-      <div class="row">
-      <div class="input-field col s12">
-        <input id="product_name" name="product_name" type="text" class="validate" value="{{product.product_name}}" />
-        <label for="icon_prefix">Product Name: </label>
-      </div>
-    </div>
-      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit
+	<form action="{{url_for('update_product', product_id=product._id)}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="product_name" name="product_name" type="text" class="validate" value="{{product.product_name}}" />
+				<label for="icon_prefix">Product Name: </label>
+			</div>
+		</div>
+		<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit
      </button>
-  </form>
+	</form>
 </div>
 {% endblock %}

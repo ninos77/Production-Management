@@ -1,53 +1,57 @@
 {% extends "base.html" %} {% set active_page = "addproduction" %}  {% block content %}
 
-<h2>Add Production</h2>
 
+<h2>Add Production</h2>
 <div class="row">
-  <form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
-      <div class="row">
-      <div class="input-field col s12">
-        <input id="product_number" name="product_number" type="text" class="validate" />
-        <label for="icon_prefix">Product Number:</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class=" col s12">
-    <select id="product" name="product_name">
-      <option value="" disabled selected>Choose your Product</option>
+	<form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="product_number" name="product_number" type="text" class="validate" required />
+				<label for="icon_prefix">Product Number:</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class=" col s12">
+				<select id="product" name="product_name">
+					<option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
-      <option value="{{product.product_name}}">{{product.product_name}}</option>
+      
+					<option value="{{product.product_name}}">{{product.product_name}}</option>
       {% endfor %}
-    </select>
-      </div>
-    </div>
-        <div class="row">
-      <div class="col s12">
-    <select id="machine" name="machine_name">
-      <option value="" disabled selected>Choose your Machine</option>
+    
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<select id="machine" name="machine_name">
+					<option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
       {% if machine.is_in_production %}
-      <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
+      
+					<option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
       {% endif %}
       {% endfor %}
-    </select>
-      </div>
-      </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
+    
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea
           name="comments"
           id="comments"
           type="textarea"
-          class="materialize-textarea"
+          class="materialize-textarea" required
         ></textarea>
-        <label for="icon_telephone">Comments:</label>
-      </div>
-   </div>
-    <div class="row">
-      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Production
+				<label for="icon_telephone">Comments:</label>
+			</div>
+		</div>
+		<div class="row">
+			<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Production
      </button>
-    </div>
-  </form>
+		</div>
+	</form>
 </div>
 
 {% endblock %}

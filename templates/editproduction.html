@@ -1,65 +1,71 @@
 {% extends "base.html" %}  {% block content %}
 
-<h2>Edit Production</h2>
 
+<h2>Edit Production</h2>
 <div class="row">
-  <form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="date" name="date" type="text" class="validate" value="{{production.date }}"/>
-        <label for="icon_prefix">Date: </label>
-      </div>
-    </div>
-      <div class="row">
-      <div class="input-field col s12">
-        <input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
-        <label for="icon_prefix">Product Number: </label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col s12">
-    <select id="product" name="product_name">
-      <option value="" disabled selected>Choose your Product</option>
+	<form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="date" name="date" type="text" class="validate" value="{{production.date }}"/>
+				<label for="icon_prefix">Date: </label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
+				<label for="icon_prefix">Product Number: </label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<select id="product" name="product_name">
+					<option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
       {% if product.product_name == production.product_name%}
-      <option value="{{product.product_name}}" selected>{{product.product_name}}</option>
+      
+					<option value="{{product.product_name}}" selected>{{product.product_name}}</option>
       {% else %}
-      <option value="{{product.product_name}}">{{product.product_name}}</option>
+      
+					<option value="{{product.product_name}}">{{product.product_name}}</option>
       {% endif %}
       {% endfor %}
-    </select>
-      </div>
-    </div>
-        <div class="row">
-    <div class="col s12">
-    <select id="machine" name="machine_name">
-      <option value="" disabled selected>Choose your Machine</option>
+    
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<select id="machine" name="machine_name">
+					<option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
       {% if machine.machine_name == production.machine_name%}
-      <option value="{{machine.machine_name}}" selected>{{machine.machine_name}}</option>
+      
+					<option value="{{machine.machine_name}}" selected>{{machine.machine_name}}</option>
       {% else %}
-      <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
+      
+					<option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
       {% endif %}
       {% endfor %}
-    </select>
-      </div>
-      </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
+    
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea
           name="comments"
           id="comments"
           type="textarea"
           class="materialize-textarea"
         >{{production.comments}}</textarea>
-        <label for="icon_telephone">Comments:</label>
-      </div>
-   </div>
-    <div class="row">
-      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit Production
+				<label for="icon_telephone">Comments:</label>
+			</div>
+		</div>
+		<div class="row">
+			<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit Production
      </button>
-    </div>
-  </form>
+		</div>
+	</form>
 </div>
 
 {% endblock %}

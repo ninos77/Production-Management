@@ -1,40 +1,41 @@
 {% extends "base.html" %}  {% block content %}
-<h2>Add New Machine To The Production</h2>
 
+<h2>Add New Machine To The Production</h2>
 <div class="row">
-  <form action="{{ url_for('insert_machine')}}" method="POST" class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="machine_name" name="machine_name" type="text" class="validate" />
-        <label for="icon_prefix">Machine Name: </label>
-     </div>
-    </div>
-    <div class="row">
-      <div class="switch">
-        <label>
-          <input id="is_in_production" name="is_in_production" type="checkbox"/>
-          <span class="lever"></span>
+	<form action="{{ url_for('insert_machine')}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="machine_name" name="machine_name" type="text" class="validate" required />
+				<label for="icon_prefix">Machine Name: </label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="switch">
+				<label>
+					<input id="is_in_production" name="is_in_production" type="checkbox"/>
+					<span class="lever"></span>
           Is Machine in production
-        </label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
+        
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12">
+				<textarea
           name="comments"
           id="comments"
           type="textarea"
-          class="materialize-textarea"
+          class="materialize-textarea" required
         ></textarea>
-        <label for="icon_telephone">Comments:</label>
-      </div>
-   </div>
-    <div class="row">
-    <div class="col s12">
-      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add
+				<label for="icon_telephone">Comments:</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add
      </button>
-    </div>
-    </div>
-  </form>
+			</div>
+		</div>
+	</form>
 </div>
 {% endblock %}

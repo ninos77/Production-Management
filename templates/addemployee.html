@@ -1,24 +1,25 @@
 {% extends "base.html" %}  {% block content %}
 
+
 <h2>Add New Employee</h2>
 <div class="row">
-  <form action="{{ url_for('insert_employee')}}" method="POST" class="col s12">
-      <div class="row">
-      <div class="input-field col s12">
-        <input id="first_name" name="first_name" type="text" class="validate" required />
-        <label for="icon_prefix">First Name:</label>
-      </div>
-      <div class="input-field col s12">
-        <input id="last_name" name="last_name" type="text" class="validate" required />
-        <label for="icon_prefix">Last Name:</label>
-      </div>
-      <div class="input-field col s12">
-        <input id="nick_name" name="nick_name" type="text" class="validate" required />
-        <label for="icon_prefix">Nick Name:</label>
-      </div>
-    </div>
-      <button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Employee
+	<form action="{{ url_for('insert_employee')}}" method="POST" class="col s12">
+		<div class="row">
+			<div class="input-field col s12">
+				<input id="first_name" name="first_name" type="text" class="validate" required />
+				<label for="icon_prefix">First Name:</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="last_name" name="last_name" type="text" class="validate" required />
+				<label for="icon_prefix">Last Name:</label>
+			</div>
+			<div class="input-field col s12">
+				<input id="nick_name" name="nick_name" type="text" class="validate" required />
+				<label for="icon_prefix">Nick Name:</label>
+			</div>
+		</div>
+		<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Employee
      </button>
-  </form>
+	</form>
 </div>
 {% endblock %}
