@@ -11,25 +11,13 @@ app.config["MONGO_URI"] = "mongodb+srv://ninos77:Itanaeliana1216@myfirstcluster-
 
 mongo = PyMongo(app)
 
-
+# -------Production(CRUD)-------------
 @app.route("/")
 @app.route("/get_productions")
 def get_productions():
     return render_template("productions.html",
                            productions=mongo.db.productions.find(),
                            employees=mongo.db.employees.find())
-
-
-@app.route("/get_products")
-def get_products():
-    return render_template("products.html",
-                           products=mongo.db.products.find())
-
-
-@app.route("/get_machines")
-def get_machines():
-    return render_template("machines.html",
-                           machines=mongo.db.machines.find())
 
 
 @app.route("/add_production")
@@ -45,67 +33,6 @@ def insert_production():
     productions = mongo.db.productions
     productions.insert_one(request.form.to_dict())
     return redirect(url_for("get_productions"))
-
-
-@app.route("/add_product")
-def add_product():
-    return render_template("addproduct.html",
-                           products=mongo.db.products.find())
-
-
-@app.route("/insert_product", methods=["POST"])
-def insert_product():
-    products = mongo.db.products
-    products.insert_one(request.form.to_dict())
-    return redirect(url_for("get_products"))
-
-
-@app.route("/add_machine")
-def add_machine():
-    return render_template("addmachine.html",
-                           machines=mongo.db.machines.find())
-
-
-@app.route("/insert_machine", methods=["POST"])
-def insert_machine():
-    machines = mongo.db.machines
-    machines.insert_one(request.form.to_dict())
-    return redirect(url_for("get_machines"))
-
-
-@app.route('/edit_product/<product_id>')
-def edit_product(product_id):
-    the_product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-    return render_template('editproduct.html', product=the_product)
-
-
-@app.route('/edit_machine/<machine_id>')
-def edit_machine(machine_id):
-    the_machine = mongo.db.machines.find_one({"_id": ObjectId(machine_id)})
-    return render_template('editmachinestatus.html', machine=the_machine)
-
-
-@app.route("/update_machine/<machine_id>", methods=["GET", "POST"])
-def update_machine(machine_id):
-    machines = mongo.db.machines
-    machines.update({"_id": ObjectId(machine_id)},
-    {
-         'machine_name': request.form.get('machine_name'),
-         'is_in_production': request.form.get('is_in_production'),
-         'comments': request.form.get('comments')
-
-    })
-    return redirect(url_for("get_machines"))
-
-
-@app.route("/update_product/<product_id>", methods=["GET", "POST"])
-def update_product(product_id):
-    products = mongo.db.products
-    products.update({"_id": ObjectId(product_id)},
-    {
-         'product_name': request.form.get('product_name')
-    })
-    return redirect(url_for("get_products"))
 
 
 @app.route('/register_production/<production_id>')
@@ -136,7 +63,7 @@ def update_production(production_id):
          'product_number': request.form.get('product_number'),
          'product_name': request.form.get('product_name'),
          'machine_name': request.form.get('machine_name'),
-         'employees': request.form.getlist('employees[]'),
+         'employees': request.form.getlist('employees'),
          'comments': request.form.get('comments'),
          'date': request.form.get('date')
     })
@@ -148,16 +75,90 @@ def delet_production(production_id):
     mongo.db.productions.remove({"_id": ObjectId(production_id)})
     return redirect(url_for("get_productions"))
 
-@app.route('/delet_machine/<machine_id>')
-def delet_machine(machine_id):
-    mongo.db.machines.remove({"_id": ObjectId(machine_id)})
-    return redirect(url_for("get_machines"))    
+# -------Product(CRUD)-------------
+@app.route("/get_products")
+def get_products():
+    return render_template("products.html",
+                           products=mongo.db.products.find())
+
+
+@app.route("/add_product")
+def add_product():
+    return render_template("addproduct.html",
+                           products=mongo.db.products.find())
+
+
+@app.route("/insert_product", methods=["POST"])
+def insert_product():
+    products = mongo.db.products
+    products.insert_one(request.form.to_dict())
+    return redirect(url_for("get_products"))
+
+
+@app.route('/edit_product/<product_id>')
+def edit_product(product_id):
+    the_product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    return render_template('editproduct.html', product=the_product)
+
+
+@app.route("/update_product/<product_id>", methods=["GET", "POST"])
+def update_product(product_id):
+    products = mongo.db.products
+    products.update({"_id": ObjectId(product_id)},
+    {
+         'product_name': request.form.get('product_name')
+    })
+    return redirect(url_for("get_products"))
 
 
 @app.route('/delet_product/<product_id>')
 def delet_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     return redirect(url_for("get_products"))
+
+# -------Machine(CRUD)-------------
+@app.route("/get_machines")
+def get_machines():
+    return render_template("machines.html",
+                           machines=mongo.db.machines.find())
+
+
+@app.route("/add_machine")
+def add_machine():
+    return render_template("addmachine.html",
+                           machines=mongo.db.machines.find())
+
+
+@app.route("/insert_machine", methods=["POST"])
+def insert_machine():
+    machines = mongo.db.machines
+    machines.insert_one(request.form.to_dict())
+    return redirect(url_for("get_machines"))
+
+
+@app.route('/edit_machine/<machine_id>')
+def edit_machine(machine_id):
+    the_machine = mongo.db.machines.find_one({"_id": ObjectId(machine_id)})
+    return render_template('editmachinestatus.html', machine=the_machine)
+
+
+@app.route("/update_machine/<machine_id>", methods=["GET", "POST"])
+def update_machine(machine_id):
+    machines = mongo.db.machines
+    machines.update({"_id": ObjectId(machine_id)},
+    {
+         'machine_name': request.form.get('machine_name'),
+         'is_in_production': request.form.get('is_in_production'),
+         'comments': request.form.get('comments')
+
+    })
+    return redirect(url_for("get_machines"))
+
+
+@app.route('/delet_machine/<machine_id>')
+def delet_machine(machine_id):
+    mongo.db.machines.remove({"_id": ObjectId(machine_id)})
+    return redirect(url_for("get_machines"))
 
 
 if __name__ == "__main__":

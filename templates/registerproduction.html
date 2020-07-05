@@ -8,12 +8,8 @@
         <label>Employees:</label>
     <select multiple>
       <option value="" disabled selected></option>
-      {% for employee in employees%}
-      {% if employee.nick_name == production.nick_name%}
-      <option value="{{employees}}" selected>{{employee.nick_name}}</option>
-      {% else %}
-      <option value="{{employees}}">{{employee.nick_name}}</option>
-      {% endif %}
+      {% for employee in employees %}
+      <option value="{{employee.nick_name}}">{{employee.nick_name}}</option>
       {% endfor %}
     </select>
         </div>
