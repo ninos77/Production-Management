@@ -5,16 +5,16 @@ from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
-
-app.config["MONGO_DBNAME"] = "Production_Management"
-app.config["MONGO_URI"] = "mongodb+srv://ninos77:Itanaeliana1216@myfirstcluster-fsr8d.mongodb.net/Production_Management?retryWrites=true&w=majority"
+app.config.from_object("config.DevelopmentConfig")
 
 mongo = PyMongo(app)
+
 
 # -------Production(CRUD)-------------
 @app.route("/")
 @app.route("/get_productions")
 def get_productions():
+    print(app.config["ENV"])
     return render_template("productions.html",
                            productions=mongo.db.productions.find(),
                            employees=mongo.db.employees.find())
