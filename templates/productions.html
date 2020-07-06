@@ -1,23 +1,34 @@
 {% extends 'base.html'%} {% set active_page = "productions" %} {% block content %}
 
 
-<h2>All Productions</h2>
 <div class="row">
+	<h2>All Productions</h2>
 	<ul class="collapsible" data-collapsible="accordion">
-      {% for production in productions %}
+      {% for production in productions  %}
 		<li>
-			<div class="collapsible-header margin-10">
-				<div class="col s12 l4">
+			<div class="collapsible-header">
+				<div class="col s12 ">
 					<i class="material-icons">expand_more</i>
-					<a href="{{url_for('delet_production', production_id=production._id)}}" class="waves-effect waves-light red darken-4 btn btn_small">Delet</a>
+					<a href="{{url_for('delet_production', production_id=production._id)}}" class="waves-effect waves-light red darken-4 btn btn_small margin-10">Delet</a>
 					<a href="{{url_for('edit_production', production_id=production._id)}}" class="waves-effect waves-light btn btn_small teal darken-2  margin-10">
 						<span>Edit</span>
 					</a>
 				</div>
-				<div class="col s12 l8">
-					<h5 class="center-align">
+				<div class="col s12">
+					<h5 >
 						<strong>Product Name:</strong> {{production.product_name}}
 					</h5>
+            {% if not production.date %}
+					<h5 >
+						<strong>Production status: </strong>
+						<span>Ready for Production</span>
+					</h5>
+              {% else %}
+					<h5 >
+						<strong>Production status: </strong>
+						<span>Done</span>
+					</h5>
+            {% endif %}  
 				</div>
 			</div>
 			<div class="collapsible-body">
@@ -72,8 +83,14 @@
 			</div>
 		</li>
       {% endfor %}
-    
 	</ul>
+	<div class="row">
+		<div class="col s12">
+			<a href="{{url_for('add_production')}}" class="waves-effect waves-light teal darken-2 btn btn_small blue">
+				<span>Add New Production</span>
+			</a>
+		</div>
+	</div>
 </div>
 
 {% endblock %}
