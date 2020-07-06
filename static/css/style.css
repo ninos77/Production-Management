@@ -20,12 +20,17 @@
   .margin-10 {
     margin: 8px 8px;
   }
+  div .brand-logo{
+      font-size: 15px;
+  }
+
 }
 @media (max-width: 414px) {
   .margin-20 {
     margin: 20px 20px;
     padding: 10px 10px;
   }
+
   }
 @media (max-width: 1024px) {
   .margin-10 {
