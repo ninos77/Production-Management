@@ -12,7 +12,7 @@
 		</div>
 		<div class="row">
 			<div class=" col s12">
-				<select id="product" name="product_name">
+				<select id="product" name="product_name" required>
 					<option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
       
@@ -24,7 +24,7 @@
 		</div>
 		<div class="row">
 			<div class="col s12">
-				<select id="machine" name="machine_name">
+				<select id="machine" name="machine_name" required>
 					<option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
       {% if machine.is_in_production %}
