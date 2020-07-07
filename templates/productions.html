@@ -44,22 +44,28 @@
 						</span>
 					</div>
 					<div class="col s12 l3">
+                    {% if not production.employees  %}
 						<span>
-							<h5>Employees:</h5>
+							<h5>Employees:</h5><i>* press the register production button to register production</i> 
 						</span>
+                    {% else %} 
+                    	<span>
+							<h5>Employees:</h5>
+						</span>   
             {% for emp in production.employees %}
               {{emp}} 
             {% if not loop.last %}
                {{','}}
             {% endif %}
             {% endfor %}
+            {% endif %}
 					</div>
 					<div class="col s12 l3">
             {% if not production.date  %}
             
 						<span>
-							<h5>Date of production:</h5>
-						</span>
+							<h5>Date of production:</h5><i>* press the register production button to register production</i> 
+						</span>          
             {% else %}
 						<span>
 							<h5>Date of production:</h5>{{production.date}}
