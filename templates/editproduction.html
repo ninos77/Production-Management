@@ -11,6 +11,24 @@
 			</div>
 		</div>
 		<div class="row">
+			<div class="col s12">
+				<select multiple id="employee" name="employees">
+					<option value="" disabled selected>Choose your Nick Name</option>
+      {% for emp in employees %}
+      {% for nick_name in production.employees %}
+      {% if emp.nick_name == nick_name%}
+					<option value="{{nick_name}}" selected>{{nick_name}}</option>
+      {% else %}
+      
+					<option value="">{{emp.nick_name}}</option>
+      {% endif %}
+      {% endfor %}
+      {% endfor %}
+    
+				</select>
+			</div>
+		</div>
+		<div class="row">
 			<div class="input-field col s12">
 				<input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
 				<label for="icon_prefix">Product Number: </label>
