@@ -10,7 +10,7 @@ This application manage data about the production (product, machine, employee) r
 - As supervisor or manager, I want to plan and add which product to be produce in which machine to be made and in what order priority and which of the machine operator who has done this work. This gives me more control and overview of all the data flow that applies to any specific production.
 - As a service technician I want to report in the application which machines are available and which ones are under maintenance. So that all employees related to production get this information that the others can plan faster and easier for the next production.
 
-Check out the **[Mockup](https://drive.google.com/file/d/1-bhSFyMNAC_GujQ776xhhiUNm53MhdTn/view?usp=sharing)**  that I have created as part of the design process and the design of **[database schema MongoDB](https://drive.google.com/file/d/1HhRcZZc9dld6TTAjd23tcvx-GHrFv2cU/view?usp=sharing)**.
+Check out the **[Mockup](https://drive.google.com/file/d/1-bhSFyMNAC_GujQ776xhhiUNm53MhdTn/view?usp=sharing?target=_blank)** that I have created as part of the design process and the design of **[database schema MongoDB](https://drive.google.com/file/d/1HhRcZZc9dld6TTAjd23tcvx-GHrFv2cU/view?usp=sharing?target=_blank)**.
 
 # **Existing Features**
 
