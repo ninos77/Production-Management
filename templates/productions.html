@@ -18,6 +18,7 @@
 					<h5 >
 						<strong>Product Name:</strong> {{production.product_name}}
 					</h5>
+            <!--tell the users if the production is done or is ready for production-->
             {% if not production.date %}
 					<h5 >
 						<strong>Production status: </strong>
@@ -44,6 +45,7 @@
 						</span>
 					</div>
 					<div class="col s12 l3">
+                    <!--provides some info to the user that must press the button to register the production-->
                     {% if not production.employees  %}
 						<span>
 							<h5>Employees:</h5><i>* press the register production button to register production</i> 
