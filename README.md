@@ -1,25 +1,26 @@
 # **Production Management** :
-This application is for industry that is focused on production. The purpose of this application is, simplicity, productivity, and save time by putting everything related to production in one place. The application can be used by all employees. Those who work in production and those who plan production.All employees in production can interact with all the data flow which is related to production. Can also be used by service technicians if they need to report on machine availability for the production. It would need admin dashboard For further development in the near future, to be able to restrict administrative to supervisor, service technicians or manager to be able to administrative application content by adding, delete and update (production, product, machine and employee).
+This application is for an industry focused on production. The purpose of this application is, simplicity, productivity, and save time by putting everything related to production in one place. The application can be used by all employees. Those who work in production and those who plan production. All employees in production can interact with all the data flow related to production. Can also be used by service technicians if they need to report on machine availability for production. It would need an admin dashboard For further development in the near future, to be able to restrict administratively to a supervisor, service technicians, or manager to be able to administrative application content by adding, delete and update (production, product, machine, and employee).
 
 # **UX** :
-This application manage data about the production (product, machine, employee) related to the company and its products. Application is for all employees on that company who want to interact with data related to their production. And to help them to get all information about the production.
+This application manages data about the production (product, machine, employee) related to the company and its products. Application is for all employees on that company who want to interact with data related to they were producing. And to help them to get all information about the production.
 
 ### **User Stories**:
 
-- As a machine operator I want to retrieve and record all data related to a production on one place. To save time, simplicity and more productive.
-- As supervisor or manager, I want to plan and add which product to be produce in which machine to be made and in what order priority and which of the machine operator who has done this work. This gives me more control and overview of all the data flow that applies to any specific production.
-- As a service technician I want to report in the application which machines are available and which ones are under maintenance. So that all employees related to production get this information that the others can plan faster and easier for the next production.
+- As a machine operator, I want to retrieve and record all data related to production in one place. To save time, simplicity, and more productive.
+- As a supervisor or manager, I want to plan and add which product to be produced in which machine to be made and in what order priority and which of the machine operator who has done this work. This gives me more control and an overview of all the data flow that applies to any specific product.
+- As a service technician, I want to report in the application which machines are available and which ones are under maintenance. So that all employees related to production get this information that others can plan faster and easier for the next production.
 
 Check out the **[Mockup](https://drive.google.com/file/d/1-bhSFyMNAC_GujQ776xhhiUNm53MhdTn/view?usp=sharing?target=_blank)** that I have created as part of the design process and the design of **[database schema MongoDB](https://drive.google.com/file/d/1HhRcZZc9dld6TTAjd23tcvx-GHrFv2cU/view?usp=sharing?target=_blank)**.
 
 # **Existing Features**
 
-There are five general pages (home, add production, products, machines status, employees) and subpages like edit, add, delete, register. In the home page, products, machines status, employees that present all data about the productions, products, machines and employees. All other subpages are about get or edit and post the data.
+There are five general pages (home, add production, products, machines status, employees.) and subpages like edit, add, delete, register. On the home page, products, machines status, employees that present all data about the productions, products, machines, and employees. All other subpages are about to getting or edit and post the data.
 
 # Features Left to Implement
 
-- **Admin Dashboard** : to be able to administrative application by the person who have the planning role.
-- **authentication user** : to give verifying the identity of the employee who has to register the pruduction.
+- **Admin Dashboard**: to be able to the administrative application by the person who has the planning role by edit and deletes.
+- **Authentication user**: to give verifying the identity of the employee who has to register the production.
+- **Search function**: to search for a specific production.
 
 # Technologies Used
 
