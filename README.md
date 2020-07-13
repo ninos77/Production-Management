@@ -41,6 +41,14 @@ During testing my project with my mentor, we have fix it some issue.
 
 - Select multiple employees in html registering production. Employees could not be displayed after registration.
 
+After the Mentor Guidance Session 2 - Middle of project call. Initially, I got some feedback and I made a little change:
+- Add production numbers to the list (All Production) above production name.
+- Correct spelling for some text.
+- Align products name in products list.
+- Remove all production from the first page (Home) and change it so that it would appear as Landing page. And change it in navbar from Add production to Production.
+- Remove register production button when production is registered.
+- HTML formatted.
+
 # Deployment
 
 I have chosen to deploy my project in Heroku instead of GitHub. Why Heroku? I need a server to handle the request which GitHub Pages cannot support at this moment. Heroku offers a lot of features and flexibility, all for free. Some of the benefits include:
