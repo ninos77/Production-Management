@@ -15,8 +15,8 @@
 				<select multiple id="employee" name="employees">
 					<option value="" disabled selected>Choose your Nick Name</option>
       {% for emp in employees %}
-      {% if emp.nick_name == production.employees.nick_name %}
-					<option value="{{emp.nick_name }}" selected>{{nick_name}}</option>
+      {% if emp.nick_name == production.employees %}
+					<option value="{{emp.nick_name }}" selected>{{emp.nick_name}}</option>
       {% else %}
       
 					<option value="">{{emp.nick_name}}</option>
