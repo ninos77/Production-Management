@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% set active_page = "addproduction" %}  {% block content %}
 
-
+<div class="container">
 <h2>Add Production</h2>
 <div class="row">
 	<form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
@@ -54,5 +54,5 @@
 		</div>
 	</form>
 </div>
-
+</div>
 {% endblock %}

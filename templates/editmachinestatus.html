@@ -1,5 +1,5 @@
 {% extends "base.html" %}  {% block content %}
-
+<div class="container">
 <h2>Edit Machine Status</h2>
 <div class="row">
 	<form action="{{url_for('update_machine', machine_id=machine._id)}}" method="POST" class="col s12">
@@ -43,6 +43,6 @@
 		</div>
 	</form>
 </div>
-
+</div>
 
 {% endblock %}

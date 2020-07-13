@@ -11,10 +11,16 @@ mongo = PyMongo(app)
 
 
 # -------Production(CRUD)-------------
+
+
 @app.route("/")
+@app.route("/index")
+def index():
+    return render_template("index.html")
+
+
 @app.route("/get_productions")
 def get_productions():
-    print(app.config["ENV"])
     return render_template("productions.html",
                            productions=mongo.db.productions.find(),
                            employees=mongo.db.employees.find())

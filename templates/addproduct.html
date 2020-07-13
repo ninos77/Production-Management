@@ -1,6 +1,6 @@
 {% extends "base.html" %}  {% block content %}
 
-
+<div class="container">
 <h2>Add Product</h2>
 <div class="row">
 	<form action="{{ url_for('insert_product')}}" method="POST" class="col s12">
@@ -13,5 +13,6 @@
 		<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Product
      </button>
 	</form>
+</div>
 </div>
 {% endblock %}

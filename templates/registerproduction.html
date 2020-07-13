@@ -1,6 +1,6 @@
   {% extends 'base.html'%} {% block content %}
   
-  
+  <div class="container">
 <h2>Register Production</h2>
 <div class="row">
 	<form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
@@ -51,4 +51,5 @@
 			</div>
 		</form>
 	</div>
+    </div>
   {% endblock %}
