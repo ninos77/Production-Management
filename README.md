@@ -28,12 +28,13 @@ There are five general pages (home, add production, products, machines status, e
 - HTML: by using HTML language to markup web pages in this project.
 - CSS: to perform style for the WepApp.
 - Materializecss: to perform style and responsive for the WepApp.
+- Google fonts: to add fonts to the webApp.
 - JavaScript and jQuery to perform:
   1. Navbar links.
   2. Mobile Navigation(navbar responsive for the mobile).
   3. Collapsibles accordion: for the production webpage.
   4. Datepicker: To register the production.
-- Websites like: ( **Stackoverflow** ,  **css-tricks** ,  **w3schools** ,  **betalamedswish** ,  **github** ,  **youtube** ).
+- Websites like: ( **Stackoverflow** ,  **css-tricks** ,  **w3schools** ,  **github** ,  **youtube** ).
 
 # Testing
 
