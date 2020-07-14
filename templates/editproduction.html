@@ -17,14 +17,11 @@
 				<select multiple id="employee" name="employees">
 					<option value="" disabled selected>Choose your Nick Name</option>
       {% for emp in employees %}
-      {% for nick_name in production.employees %}
-      {% if nick_name  == emp.nick_name %}
+         {% for nick_name in production.employees if emp.nick_name  == nick_name %}
 					<option value="{{nick_name }}" selected>{{nick_name}}</option>
-      {% else %}
+       {% endfor %}
+					<option value="{{emp.nick_name}}">{{emp.nick_name}}</option>                       
       
-					<option value="">{{nick_name}}</option>
-      {% endif %}             
-      {% endfor %}
       {% endfor %}
 				</select>
 			</div>
