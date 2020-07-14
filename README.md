@@ -49,6 +49,7 @@ After the Mentor Guidance Session 2 - Middle of project call. Initially, I got s
 - Remove all production from the first page (Home) and change it so that it would appear as Landing page. And change it in navbar from Add production to Production.
 - Remove register production button when production is registered.
 - HTML formatted.
+- Fix it an issue that make employees nickname double when to make edit after registration the production.
 
 # Deployment
 
