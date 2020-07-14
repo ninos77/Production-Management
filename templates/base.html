@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
-    <title>Production Management</title>
-</head>
-<body>
-<div>
-  <nav>
-    <div class="nav-wrapper teal darken-4">
-      <a href="{{url_for('index')}}" class="brand-logo">Production Management</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li class="{{ 'active' if active_page == 'index' else '' }}"><a href="{{url_for('index')}}">Home</a></li>
-        <li class="{{ 'active' if active_page == 'productions' else ''}}"><a href="{{url_for('get_productions')}}">Production</a></li>
-        <li class="{{ 'active' if active_page == 'products' else ''}}"><a href="{{url_for('get_products')}}">Products</a></li>
-        <li class="{{ 'active' if active_page == 'machines' else ''}}"><a href="{{url_for('get_machines')}}">Machines Status</a></li>
-        <li class="{{ 'active' if active_page == 'employees' else ''}}"><a href="{{url_for('get_employees')}}">Employees</a></li>
-      </ul>
-       <ul class="side-nav" id="mobile-demo">
-        <li class="{{ 'active' if active_page == 'index' else '' }}"><a href="{{url_for('index')}}">Home</a></li>
-        <li class="{{ 'active' if active_page == 'productions' else ''}}"><a href="{{url_for('get_productions')}}">Production</a></li>
-        <li class="{{ 'active' if active_page == 'products' else ''}}"><a href="{{url_for('get_products')}}">Products</a></li>
-        <li class="{{ 'active' if active_page == 'machines' else ''}}"><a href="{{url_for('get_machines')}}">Machines Status</a></li>
-        <li class="{{ 'active' if active_page == 'employees' else ''}}"><a href="{{url_for('get_employees')}}">Employees</a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
-    {% block content %}
-    {% endblock %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-$(document).ready(function() {
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+	<title>Production Management</title>
+</head>
+
+<body>
+	<div>
+		<nav>
+			<div class="nav-wrapper teal darken-4">
+				<a href="{{url_for('index')}}" class="brand-logo">Production Management</a>
+				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+				<ul class="right hide-on-med-and-down">
+					<li class="{{ 'active' if active_page == 'index' else '' }}"><a href="{{url_for('index')}}">Home</a>
+					</li>
+					<li class="{{ 'active' if active_page == 'productions' else ''}}"><a
+							href="{{url_for('get_productions')}}">Production</a></li>
+					<li class="{{ 'active' if active_page == 'products' else ''}}"><a
+							href="{{url_for('get_products')}}">Products</a></li>
+					<li class="{{ 'active' if active_page == 'machines' else ''}}"><a
+							href="{{url_for('get_machines')}}">Machines Status</a></li>
+					<li class="{{ 'active' if active_page == 'employees' else ''}}"><a
+							href="{{url_for('get_employees')}}">Employees</a></li>
+				</ul>
+				<ul class="side-nav" id="mobile-demo">
+					<li class="{{ 'active' if active_page == 'index' else '' }}"><a href="{{url_for('index')}}">Home</a>
+					</li>
+					<li class="{{ 'active' if active_page == 'productions' else ''}}"><a
+							href="{{url_for('get_productions')}}">Production</a></li>
+					<li class="{{ 'active' if active_page == 'products' else ''}}"><a
+							href="{{url_for('get_products')}}">Products</a></li>
+					<li class="{{ 'active' if active_page == 'machines' else ''}}"><a
+							href="{{url_for('get_machines')}}">Machines Status</a></li>
+					<li class="{{ 'active' if active_page == 'employees' else ''}}"><a
+							href="{{url_for('get_employees')}}">Employees</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	{% block content %}
+	{% endblock %}
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function() {
     $('select').material_select();
     $('.collapsible').collapsible();
     $(".button-collapse").sideNav();
@@ -56,13 +68,14 @@ $(document).ready(function() {
 	e.stopPropagation();
 });
   
-</script>
-<div class="container"></div>
-    <footer class="teal darken-4">
-      <section class="ft-legal">
-        <h5 class="center-align white-text">
-          &copy; 2020 Copyright Company Name AB.</h5>
-      </section>
-    </footer>
+	</script>
+	<div class="container"></div>
+	<footer class="teal darken-4">
+		<section class="ft-legal">
+			<h5 class="center-align white-text">
+				&copy; 2020 Copyright Company Name AB.</h5>
+		</section>
+	</footer>
 </body>
+
 </html>

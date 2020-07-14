@@ -1,18 +1,18 @@
-{% extends "base.html" %} {% set active_page = "addproduction" %}  {% block content %}
+{% extends "base.html" %} {% set active_page = "addproduction" %} {% block content %}
 
 <div class="container">
-<h2>Add Production</h2>
-<div class="row">
-	<form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="product_number" name="product_number" type="text" class="validate" required />
-				<label for="icon_prefix">Product Number:</label>
+	<h2>Add Production</h2>
+	<div class="row">
+		<form action="{{ url_for('insert_production')}}" method="POST" class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="product_number" name="product_number" type="text" class="validate" required />
+					<label for="icon_prefix">Product Number:</label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class=" col s12">
-				<select id="product" name="product_name" required>
+			<div class="row">
+				<div class=" col s12">
+					<select id="product" name="product_name" required>
 					<option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
       
@@ -20,11 +20,11 @@
       {% endfor %}
     
 				</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<select id="machine" name="machine_name" required>
+			<div class="row">
+				<div class="col s12">
+					<select id="machine" name="machine_name" required>
 					<option value="" disabled selected>Choose your Machine</option>
        <!--check if the machine is available for production-->             
       {% for machine in machines %}
@@ -35,24 +35,24 @@
       {% endfor %}
     
 				</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<textarea
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea
           name="comments"
           id="comments"
           type="textarea"
           class="materialize-textarea" required
         ></textarea>
-				<label for="icon_telephone">Comments:</label>
+					<label for="icon_telephone">Comments:</label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Production
+			<div class="row">
+				<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Add Production
      </button>
-		</div>
-	</form>
-</div>
+			</div>
+		</form>
+	</div>
 </div>
 {% endblock %}

@@ -1,104 +1,109 @@
 {% extends 'base.html'%} {% set active_page = "productions" %} {% block content %}
 
 <div class="container">
-<div class="row">
-	<h2>All Productions</h2>
-	<ul class="collapsible" data-collapsible="accordion">
-      {% for production in productions  %}
-		<li>
-			<div class="collapsible-header">
-				<div class="col s12 ">
-					<i class="material-icons">expand_more</i>
-					<a href="{{url_for('delet_production', production_id=production._id)}}" class="waves-effect waves-light red darken-4 btn btn_small margin-10">Delete</a>
-					<a href="{{url_for('edit_production', production_id=production._id)}}" class="waves-effect waves-light btn btn_small teal darken-2  margin-10">
-						<span>Edit</span>
-					</a>
+	<div class="row">
+		<h2>All Productions</h2>
+		<ul class="collapsible" data-collapsible="accordion">
+			{% for production in productions  %}
+			<li>
+				<div class="collapsible-header">
+					<div class="col s12 ">
+						<i class="material-icons">expand_more</i>
+						<a href="{{url_for('delet_production', production_id=production._id)}}"
+							class="waves-effect waves-light red darken-4 btn btn_small margin-10">Delete</a>
+						<a href="{{url_for('edit_production', production_id=production._id)}}"
+							class="waves-effect waves-light btn btn_small teal darken-2  margin-10">
+							<span>Edit</span>
+						</a>
+					</div>
+					<div class="col s12">
+						<h5>
+							<strong>Product Number:</strong> {{production.product_number}}
+						</h5>
+						<h5>
+							<strong>Product Name:</strong> {{production.product_name}}
+						</h5>
+						<!--tell the users if the production is done or is ready for production-->
+						{% if not production.date %}
+						<h5>
+							<strong>Production status: </strong>
+							<span>Ready for Production</span>
+						</h5>
+						{% else %}
+						<h5>
+							<strong>Production status: </strong>
+							<span>Done</span>
+						</h5>
+						{% endif %}
+					</div>
 				</div>
-				<div class="col s12">
-                	<h5 >
-						<strong>Product Number:</strong> {{production.product_number}}
-					</h5>
-					<h5 >
-						<strong>Product Name:</strong> {{production.product_name}}
-					</h5>
-            <!--tell the users if the production is done or is ready for production-->
-            {% if not production.date %}
-					<h5 >
-						<strong>Production status: </strong>
-						<span>Ready for Production</span>
-					</h5>
-              {% else %}
-					<h5 >
-						<strong>Production status: </strong>
-						<span>Done</span>
-					</h5>
-            {% endif %}  
-				</div>
-			</div>
-			<div class="collapsible-body">
-				<div class="row">
-					<div class="col s12 l4">
-						<span>
+				<div class="collapsible-body">
+					<div class="row">
+						<div class="col s12 l4">
+							<span>
 							<h5>Machine Name:</h5>{{production.machine_name}}
 						</span>
-					</div>
-					<div class="col s12 l4">
-                    <!--provides some info to the user that must press the button to register the production-->
-                    {% if not production.employees  %}
-						<span>
+						</div>
+						<div class="col s12 l4">
+							<!--provides some info to the user that must press the button to register the production-->
+							{% if not production.employees  %}
+							<span>
 							<h5>Employees:</h5><i>* press the register production button to register production</i> 
 						</span>
-                    {% else %} 
-                    	<span>
+							{% else %}
+							<span>
 							<h5>Employees:</h5>
-						</span>   
-            {% for emp in production.employees %}
-              {{emp}} 
-            {% if not loop.last %}
-               {{','}}
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-					</div>
-					<div class="col s12 l4">
-            {% if not production.date  %}
-            
-						<span>
+						</span>
+							{% for emp in production.employees %}
+							{{emp}}
+							{% if not loop.last %}
+							{{','}}
+							{% endif %}
+							{% endfor %}
+							{% endif %}
+						</div>
+						<div class="col s12 l4">
+							{% if not production.date  %}
+
+							<span>
 							<h5>Date of production:</h5><i>* press the register production button to register production</i> 
-						</span>          
-            {% else %}
-						<span>
+						</span>
+							{% else %}
+							<span>
 							<h5>Date of production:</h5>{{production.date}}
 						</span>
-            {% endif %}
+							{% endif %}
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col s12 m4">
-						<span>
+					<div class="row">
+						<div class="col s12 m4">
+							<span>
 							<h5>Comments:</h5>
 						</span>
-						<p id="comments">{{ production.comments}}</p>
+							<p id="comments">{{ production.comments}}</p>
+						</div>
 					</div>
-				</div>
-                {% if not production.date and not production.employees %}
-				<div class="row">
-					<div class="col s12">
-						<a class="waves-effect waves-light teal darken-2 btn modal-trigger " href="{{url_for('register_production', production_id=production._id)}}" >register production</a>
+					{% if not production.date and not production.employees %}
+					<div class="row">
+						<div class="col s12">
+							<a class="waves-effect waves-light teal darken-2 btn modal-trigger "
+								href="{{url_for('register_production', production_id=production._id)}}">register
+								production</a>
+						</div>
 					</div>
+					{% endif %}
 				</div>
-            {% endif %}
+			</li>
+			{% endfor %}
+		</ul>
+		<div class="row">
+			<div class="col s12">
+				<a href="{{url_for('add_production')}}"
+					class="waves-effect waves-light teal darken-2 btn btn_small blue">
+					<span>Add New Production</span>
+				</a>
 			</div>
-		</li>
-      {% endfor %}
-	</ul>
-	<div class="row">
-		<div class="col s12">
-			<a href="{{url_for('add_production')}}" class="waves-effect waves-light teal darken-2 btn btn_small blue">
-				<span>Add New Production</span>
-			</a>
 		</div>
 	</div>
-</div>
 </div>
 {% endblock %}

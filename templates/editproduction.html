@@ -1,20 +1,20 @@
-{% extends "base.html" %}  {% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="container">
-<h2>Edit Production</h2>
-<div class="row">
-	<form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
-    <div id="matfix">
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="date" name="date" type="text" class="datepicker" value="{{production.date }}"/>
-				<label for="icon_prefix">Date: </label>
+	<h2>Edit Production</h2>
+	<div class="row">
+		<form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+			<div id="matfix">
+				<div class="row">
+					<div class="input-field col s12">
+						<input id="date" name="date" type="text" class="datepicker" value="{{production.date }}"/>
+						<label for="icon_prefix">Date: </label>
+					</div>
+				</div>
 			</div>
-		</div>
-    </div>
-		<div class="row">
-			<div class="col s12">
-				<select multiple id="employee" name="employees">
+			<div class="row">
+				<div class="col s12">
+					<select multiple id="employee" name="employees">
 					<option value="" disabled selected>Choose your Nick Name</option>
       {% for emp in employees %}
          {% for nick_name in production.employees if emp.nick_name  == nick_name %}
@@ -24,17 +24,17 @@
       
       {% endfor %}
 				</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
-				<label for="icon_prefix">Product Number: </label>
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="product_number" name="product_number" type="text" class="validate" value="{{production.product_number }}" />
+					<label for="icon_prefix">Product Number: </label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<select id="product" name="product_name">
+			<div class="row">
+				<div class="col s12">
+					<select id="product" name="product_name">
 					<option value="" disabled selected>Choose your Product</option>
       {% for product in products %}
       {% if product.product_name == production.product_name%}
@@ -47,11 +47,11 @@
       {% endfor %}
     
 				</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col s12">
-				<select id="machine" name="machine_name">
+			<div class="row">
+				<div class="col s12">
+					<select id="machine" name="machine_name">
 					<option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
       {% if machine.machine_name == production.machine_name %}
@@ -63,24 +63,24 @@
       {% endfor %}
     
 				</select>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<textarea
+			<div class="row">
+				<div class="input-field col s12">
+					<textarea
           name="comments"
           id="comments"
           type="textarea"
           class="materialize-textarea"
         >{{production.comments}}</textarea>
-				<label for="icon_telephone">Comments:</label>
+					<label for="icon_telephone">Comments:</label>
+				</div>
 			</div>
-		</div>
-		<div class="row">
-			<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit Production
+			<div class="row">
+				<button class="btn waves-effect teal darken-2 waves-light" type="submit" >Edit Production
      </button>
-		</div>
-	</form>
-</div>
+			</div>
+		</form>
+	</div>
 </div>
 {% endblock %}
