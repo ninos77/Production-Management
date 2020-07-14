@@ -4,26 +4,28 @@
 <h2>Edit Production</h2>
 <div class="row">
 	<form action="{{ url_for('update_production', production_id=production._id)}}" method="POST" class="col s12">
+    <div id="matfix">
 		<div class="row">
 			<div class="input-field col s12">
-				<input id="date" name="date" type="text" class="validate" value="{{production.date }}"/>
+				<input id="date" name="date" type="text" class="datepicker" value="{{production.date }}"/>
 				<label for="icon_prefix">Date: </label>
 			</div>
 		</div>
+    </div>
 		<div class="row">
 			<div class="col s12">
 				<select multiple id="employee" name="employees">
 					<option value="" disabled selected>Choose your Nick Name</option>
       {% for emp in employees %}
-      {% if emp.nick_name == production.employees %}
-					<option value="{{emp.nick_name }}" selected>{{emp.nick_name}}</option>
+      {% for nick_name in production.employees %}
+      {% if nick_name  == emp.nick_name %}
+					<option value="{{nick_name }}" selected>{{nick_name}}</option>
       {% else %}
       
-					<option value="">{{emp.nick_name}}</option>
+					<option value="">{{nick_name}}</option>
       {% endif %}             
       {% endfor %}
-      
-    
+      {% endfor %}
 				</select>
 			</div>
 		</div>
@@ -55,12 +57,11 @@
 				<select id="machine" name="machine_name">
 					<option value="" disabled selected>Choose your Machine</option>
       {% for machine in machines %}
-      {% if machine.machine_name == production.machine_name%}
+      {% if machine.machine_name == production.machine_name %}
       
 					<option value="{{machine.machine_name}}" selected>{{machine.machine_name}}</option>
-      {% else %}
-      
-					<option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
+      {% elif machine.is_in_production %}
+      <option value="{{machine.machine_name}}">{{machine.machine_name}}</option>
       {% endif %}
       {% endfor %}
     
