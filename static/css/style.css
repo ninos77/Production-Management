@@ -1,19 +1,19 @@
 @charset "utf-8";
-@import url('https://fonts.googleapis.com/css?family=Exo|Roboto:100,200,300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lato:300|Oswald&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Exo|Roboto:100,200,300,400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300|Oswald&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Kavivanar");
 
 .text-padding span {
   font-size: 13px;
 }
 
-a.brand-logo{
-   margin-left: 35px;
-   font-family: 'Oswald', sans-serif;
+a.brand-logo {
+  margin-left: 35px;
+  font-family: "Oswald", sans-serif;
 }
 
-.tranparent-color{
-    background: rgba(75, 75, 75, 0.1);
+.tranparent-color {
+  background: rgba(75, 75, 75, 0.1);
 }
 .dot-red {
   height: 25px;
@@ -30,58 +30,55 @@ a.brand-logo{
   display: inline-block;
 }
 .bg {
-    position: relative;
-    background: url(../images/index.jpg) no-repeat center center;
-    background-size: cover;
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+  position: relative;
+  background: url(../images/index.jpg) no-repeat center center;
+  background-size: cover;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
- .bg h1{
-      font-family: 'Exo', sans-serif;
-  }
+.bg h1 {
+  font-family: "Exo", sans-serif;
+}
 
 /*--------Footer---------*/
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 .container {
-    flex: 1;    /* same as flex-grow: 1; */
+  flex: 1; /* same as flex-grow: 1; */
 }
 .ft-legal {
-    padding: 0.9375rem 1.875rem;
+  padding: 0.9375rem 1.875rem;
 }
 /* one before the last child */
 .ft-legal-list li:nth-last-child(2) {
-    flex: 1;       /* same as flex-grow: 1; */
+  flex: 1; /* same as flex-grow: 1; */
 }
 
 @media (max-width: 768px) {
   .margin-10 {
     margin: 8px 8px;
   }
-  div .brand-logo{
-      font-family: 'Oswald', sans-serif;
-      font-size: 10px;
-      margin-left: 10px;
+  div .brand-logo {
+    font-family: "Oswald", sans-serif;
+    font-size: 10px;
+    margin-left: 10px;
   }
-  .bg h1,h4{
-      font-size: 20px;
+  .bg h1,
+  h4 {
+    font-size: 20px;
   }
-
 }
 @media (max-width: 414px) {
   .margin-20 {
     margin: 20px 20px;
     padding: 10px 10px;
   }
-
-  }
+}
 @media (max-width: 1024px) {
   .margin-10 {
     margin: 8px 8px;
   }
-
 }
-
